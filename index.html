@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game OOP Assignment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container-fluid main-bg p-0" style="min-height:100vh;">
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 300px;">
+            <div id="custom-navbar" class="custom-navbar d-flex align-items-center px-5 py-4 shadow-lg position-relative flex-wrap w-100" style="max-width:1200px;">
+                <img src="images/logo-sm.png" alt="Logo" class="logo me-3" style="width:56px;height:56px;">
+                <span class="navbar-title me-5">GAME REVIEWS</span>
+                <button class="navbar-toggler d-lg-none ms-auto" type="button" aria-label="Toggle navigation" style="border:none;background:transparent;outline:none;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-categories list-unstyled d-flex mb-0 ms-auto flex-lg-row flex-column align-items-lg-center align-items-start gap-lg-4 gap-2" style="display:flex;">
+                    <li><a class="nav-category active" href="#">MMORPG</a></li>
+                    <li><a class="nav-category" href="#">SHOOTER</a></li>
+                    <li><a class="nav-category" href="#">SAILING</a></li>
+                    <li><a class="nav-category" href="#">PERMADEATH</a></li>
+                    <li><a class="nav-category" href="#">SUPERHERO</a></li>
+                    <li><a class="nav-category" href="#">PIXEL</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- باقي الصفحة (قائمة الألعاب، التفاصيل) هنا -->
+        <div class="row justify-content-center">
+            <section id="games-section" class="col-10">
+                <div id="games-list" class="row g-4"></div>
+            </section>
+            <section id="details-section" class="col-10" style="display:none;">
+                <button id="back-btn" class="btn btn-primary mb-3">Back</button>
+                <div id="game-details"></div>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+    // Responsive navbar toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggler = document.querySelector('.navbar-toggler');
+        const navCats = document.querySelector('.navbar-categories');
+        toggler.addEventListener('click', function() {
+            navCats.classList.toggle('show-navbar-cats');
+        });
+        // إغلاق القائمة عند اختيار عنصر (على الشاشات الصغيرة)
+        navCats.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth < 992) navCats.classList.remove('show-navbar-cats');
+            });
+        });
+    });
+    </script>
+</body>
+</html> 
